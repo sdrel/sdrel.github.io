@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ 
+    <title>预约入馆</title>
+    <script>
+    $(function(){
+    	
+    	
+    	var myDate = new Date;
+        var year = myDate.getFullYear(); //获取当前年
+        var mon = myDate.getMonth() + 1; //获取当前月
+        var date = myDate.getDate(); //获取当前日
+        // var h = myDate.getHours();//获取当前小时数(0-23)
+        // var m = myDate.getMinutes();//获取当前分钟数(0-59)
+        // var s = myDate.getSeconds();//获取当前秒
+        //使用$("div[myattr='test']")进行选择
+        var week = myDate.getDay();
+        var weeks = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+        console.log(year, mon, date, weeks[week])
+        //$("#comfirm_time").html(year + "年" + mon + "月" + date + "日" + weeks[week]);
+        if(mon<=9){mon="0"+mon;}
+        if(date<=9){date="0"+date;}
+        var currentdate=year+'-'+mon+'-'+date;
+        var testdate=$("#bookingdate").attr("bookingdate");
+        if(currentdate!=testdate){
+        	$("#bookingdate").hide();
+        }
+        var now = new Date();
+        var hour = now.getHours()
+        var kampm="am";
+        if(hour >= 7 && hour <12 ){kampm="am";}
+        if(hour >= 12 && hour <18){kampm="pm";}
+        if(hour >= 18 && hour <24){kampm="wm";}
+		
+		
+		$(document).ready(function(){
+				if(kampm=="wm"){
+					var day = new Date;
+					day.setTime(day.getTime()+24*60*60*1000);
+					var year1 = myDate.getFullYear(); //获取当前年
+					var mon1 = myDate.getMonth() + 1; //获取当前月
+					var date1 = myDate.getDate(); //获取当前日
+					$("#bookingdatedate").append(year1+"-"+mon1+"-"+date1);
+				}
+				else{
+					$("#bookingdatedate").append(year+"-"+mon+"-"+date);
+				}
+				 $("#bookingdatedate1").append(year+"-"+mon+"-"+date);
+				 $("#bookingdatedate2").append(year+"-"+mon+"-"+date);
+				 $("#bookingdatedate3").append(year+"-"+mon+"-"+date);
+			     if(kampm=="am")
+			     {
+			     	$("#signedlist000").show();
+					$(".signedcontentdiv002").css({ 'font-weight': 'bold' });
+					$(".signedcontentdiv002").css({"color":"green"});
+					$(".signedcontentdiv002").show();
+					$(".signedcontentdiv001").hide();
+					$(".signedcontentdiv002").hide();
+					$("#comfirm_ampm").append("下午");
+					$("#comfirm_time").append("12:00-18:00");
+			     }
+			     if(kampm=="pm")
+			     {
+			     	
+					$("#signedlist000").show();
+					$(".signedcontentdiv001").css({ 'font-weight': 'bold' });
+					$(".signedcontentdiv001").css({"color":"green"});
+					$(".signedcontentdiv001").show();
+					$(".signedcontentdiv002").show();
+					$(".signedcontentdiv000").hide();
+					$("#comfirm_ampm").append("晚上");
+					$("#comfirm_time").append("18:00-22:00");
+			     }
+				 if(kampm=="wm")
+				 {
+				 	$("#signedlist000").show();
+					$(".signedcontentdiv000").css({ 'font-weight': 'bold' });
+					$(".signedcontentdiv000").css({"color":"green"});
+					$(".signedcontentdiv000").show();
+					$(".signedcontentdiv001").show();
+					$(".signedcontentdiv002").show();
+					$("#comfirm_ampm").append("上午");
+					$("#comfirm_time").append("08:00-12:00");
+				 }
+				
+			});  
+		
+
+
+        
+    });
+    
+    </script>
+    <style type="text/css">
+    .panel{
+    height:400px;
+    width:400px;
+    }
+    .col-center-block {
+	    float: none;
+	    display: block;
+	    margin-left: auto;
+	    margin-right: auto;
+	}
+	.kfoll{ 
+		font-family:"Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu ;
+		font-size: 27px;
+		}
+	.brkstr {
+       
+     color: red;
+     font-size: 18px;
+     font-weight: 20;
+	
+   }
+	.tipsw {
+       
+     color: red;
+     font-size: 27px;
+     font-weight: 40;
+	
+   }
+    </style>
+</head>
+
+<body>
+<!-- 爽约记录 -->
+<div class="col-center-block" style="height:20%;"><p><span></span></p></div>
+<div class="col-center-block" style="width:80%;display:none;" id="brklist000">
+    <div style="float:left;clear:both;"><font class="brkstr">你已是爽约多次:</font></div>
+	
+	<div style="float:none;clear:both;"><hr style="margin:0px 0px;height:10px;border:none;border-top:10px solid #CCC;" /></div>
+	
+</div>
+<!-- 确认信息 -->
+<div class="col-center-block" style="height:20%;"><p><span></span></p></div>
+<div class="col-center-block" style="width:80%;" >   
+    <div id="maindiv001">
+	     <form action="/booking2lib/tolibrary"  method="post" name="form1">
+	        
+	        <div>
+	           <div style="float:left;clear:both;"><font class="kfoll">你的预约已经确认</font></div>
+	           <div style="float:none;clear:both;"><hr style="height:1px;border:none;border-top:1px solid #CCC;" /></div> 
+	           <div style="float:left;">预约时间</div> 	<div  style="float:right;clear:right;"><span id="comfirm_ampm"></span> <span id="comfirm_time"></span></div><div style="float:right;" id="bookingdatedate"></div>
+	        </div>
+	        <div style="float:none;clear:both;"><hr style="height:1px;border:none;border-top:1px solid #CCC;" /></div>
+	        <div>
+	        	<div style="float:left;">场馆</div> <div  style="float:right;">泰山分馆</div>
+	            
+	        </div>
+	         <div style="float:none;clear:both;"><hr style="height:1px;border:none;border-top:1px solid #CCC;" /></div>
+	        <div>
+	        	<div style="float:left;">读者账号</div> <div  style="float:right;">201721170220</div>
+	            
+	        </div>
+	         <div style="float:none;clear:both;"><hr style="height:1px;border:none;border-top:1px solid #CCC;" /></div>
+	        
+	        </div>
+	        <br>
+	        <div id="brk_app00" align="center" brkattr000="0" style="float:none;clear:both;display:none;" class="tipsw">你已爽约！！！</div>
+	        <br>
+	        <div id="brk_app01" align="center"  brkattr001="0" style="float:none;clear:both;display:none;">
+	        	<a class="btn btn-danger" href="/booking2lib/redo2Booking" style="width:90px;">重新预约</a>
+	        </div>
+	        <br>
+	        <div align="center" style="float:none;clear:both;" id="bookingcancel">
+	        	<a class="btn btn-danger" href="/booking2lib/redo2Booking" style="width:90px;">取消预约</a>
+	        </div>
+	    </div>
+	     </form>
+	    
+     </div>
+</div>
+<!-- 签到记录 -->
+<div class="col-center-block" style="height:20%;"><p><span></span></p></div>
+<div class="col-center-block" style="width:80%;display:none;" id="signedlist000">    
+	<div id="confirmcontentdiv000" class="signedcontentdiv000" bookingdate="2020-09-10" dayampm="wm" >
+		<div style="float:none;clear:both;"><hr style="margin:-2px 0px;height:10px;border:none;border-top:10px solid #CCC;" /></div>
+		<div style="float:left;clear:both;"><font class="signedstr">你已经签到</font></div>
+		<div style="float:none;clear:both;"><hr style="margin:0px 0px;;height:1px;border:none;border-top:1px solid #CCC;" /></div> 
+		<div style="float:left;">预约时间</div> 	<div  style="float:right;clear:right;">晚上 18:00-22:00</div><div style="float:right;" id="bookingdatedate1"></div>
+		<div style="float:none;clear:both;"><hr style="margin:0px 0px;height:1px;border:none;border-top:1px solid #CCC;" /></div>
+	    <div>
+	    	<div style="float:left;">场馆</div> <div  style="float:right;">泰山分馆</div>	            
+	    </div>
+	    <div style="float:none;clear:both;"><hr style="margin:0px 0px;height:1px;border:none;border-top:1px solid #CCC;" /></div>
+	    <div>
+	    	<div style="float:left;">读者账号</div> <div  style="float:right;">201721170220</div>	            
+	    </div>
+	</div>    
+	<div id="confirmcontentdiv000" class="signedcontentdiv001" bookingdate="2020-09-10" dayampm="pm" >
+		<div style="float:none;clear:both;"><hr style="margin:-2px 0px;height:10px;border:none;border-top:10px solid #CCC;" /></div>
+		<div style="float:left;clear:both;"><font class="signedstr">你已经签到</font></div>
+		<div style="float:none;clear:both;"><hr style="margin:0px 0px;;height:1px;border:none;border-top:1px solid #CCC;" /></div> 
+		<div style="float:left;">预约时间</div> 	<div  style="float:right;clear:right;">下午 12:00-18:00</div><div style="float:right;" id="bookingdatedate2"></div>
+		<div style="float:none;clear:both;"><hr style="margin:0px 0px;height:1px;border:none;border-top:1px solid #CCC;" /></div>
+	    <div>
+	    	<div style="float:left;">场馆</div> <div  style="float:right;">泰山分馆</div>	            
+	    </div>
+	    <div style="float:none;clear:both;"><hr style="margin:0px 0px;height:1px;border:none;border-top:1px solid #CCC;" /></div>
+	    <div>
+	    	<div style="float:left;">读者账号</div> <div  style="float:right;">201721170220</div>	            
+	    </div>
+	</div>    
+	<div id="confirmcontentdiv000" class="signedcontentdiv002" bookingdate="2020-09-10" dayampm="am" >
+		<div style="float:none;clear:both;"><hr style="margin:-2px 0px;height:10px;border:none;border-top:10px solid #CCC;" /></div>
+		<div style="float:left;clear:both;"><font class="signedstr">你已经签到</font></div>
+		<div style="float:none;clear:both;"><hr style="margin:0px 0px;;height:1px;border:none;border-top:1px solid #CCC;" /></div> 
+		<div style="float:left;">预约时间</div> 	<div  style="float:right;clear:right;">上午 8:00-12:00</div><div style="float:right;" id="bookingdatedate3"></div>
+		<div style="float:none;clear:both;"><hr style="margin:0px 0px;height:1px;border:none;border-top:1px solid #CCC;" /></div>
+	    <div>
+	    	<div style="float:left;">场馆</div> <div  style="float:right;">泰山分馆</div>	            
+	    </div>
+	    <div style="float:none;clear:both;"><hr style="margin:0px 0px;height:1px;border:none;border-top:1px solid #CCC;" /></div>
+	    <div>
+	    	<div style="float:left;">读者账号</div> <div  style="float:right;">201721170220</div>	            
+	    </div>
+	</div>
+	<div style="float:none;clear:both;"><hr style="margin:0px 0px;height:10px;border:none;border-top:10px solid #CCC;" /></div>
+	
+</div>
+<!-- end 签到记录 -->
+
+<div style="float:none;clear:both;"><hr style="height:10px;border:none;border-top:10px solid #CCC;" /></div>
+<div class="col-center-block" style="width:80%;" id="maindiv002"> 
+	<div class="tipsw">凭此信息和校园卡入馆</div>
+	<div>预约注意事项:</div>
+	<div>资源有限，请诚信预约。如不能按约到馆，请及时取消。</div> 
+	
+</div> 
+<div class="col-center-block" style="width:80%;display:none;" id="brkdiv002" > 
+	<div class="tipsw">你前7天内的爽约次数超过了3次,请等待下个时段再试。</div>
+	<div>预约注意事项:</div>
+	<div>预约到馆的读者，请签到；或如不能按约到馆的，请及时取消。否则，将影响下次预约的权限。</div>
+	<div>资源有限，敬请各位读者在预约起始时间的1个小时内来馆，否则此次预约不予保留。</div> 
+	
+	
+</div>         
+</body>
+</html>
