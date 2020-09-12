@@ -47,6 +47,8 @@
 					var year1 = day.getFullYear(); //获取当前年
 					var mon1 = day.getMonth() + 1; //获取当前月
 					var date1 = day.getDate(); //获取当前日
+					if(mon1<=9){mon1="0"+mon1;}
+        				if(date1<=9){date1="0"+date1;}
 					$("#bookingdatedate").append(year1+"-"+mon1+"-"+date1);
 				}
 				else{
