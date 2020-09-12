@@ -39,27 +39,23 @@
         if(hour >= 12 && hour <18){kampm="pm";}
         if(hour >= 18 && hour <24){kampm="wm";}
 		
+		var day = new Date;
+		day.setTime(day.getTime()+24*60*60*1000);
+		var years = day.getFullYear(); //获取当前年
+		var mons = day.getMonth() + 1; //获取当前月
+		var dates = day.getDate(); //获取当前日
+		if(mons<=9){mons="0"+mons;}
+		if(dates<=9){dates="0"+dates;}
+		
 		
 		$(document).ready(function(){
-				if(kampm=="wm"){
-					var day = new Date;
-					day.setTime(day.getTime()+24*60*60*1000);
-					var year1 = day.getFullYear(); //获取当前年
-					var mon1 = day.getMonth() + 1; //获取当前月
-					var date1 = day.getDate(); //获取当前日
-					if(mon1<=9){mon1="0"+mon1;}
-        				if(date1<=9){date1="0"+date1;}
-					$("#bookingdatedate").append(year1+"-"+mon1+"-"+date1);
-				}
-				else{
-					$("#bookingdatedate").append(year+"-"+mon+"-"+date);
-				}
 				 $("#bookingdatedate1").append(year+"-"+mon+"-"+date);
 				 $("#bookingdatedate2").append(year+"-"+mon+"-"+date);
 				 $("#bookingdatedate3").append(year+"-"+mon+"-"+date);
 			     if(kampm=="am")
 			     {
-			     	$("#signedlist000").show();
+			     	$("#bookingdatedate").append(year+"-"+mon+"-"+date);
+					$("#signedlist000").show();
 					$(".signedcontentdiv002").css({ 'font-weight': 'bold' });
 					$(".signedcontentdiv002").css({"color":"green"});
 					$(".signedcontentdiv002").show();
@@ -70,19 +66,28 @@
 			     }
 			     if(kampm=="pm")
 			     {
-			     	
+			     	if(week!=0){
+						$("#bookingdatedate").append(year+"-"+mon+"-"+date);
+						$("#comfirm_ampm").append("晚上");
+						$("#comfirm_time").append("18:00-22:00");
+					}
+					else{
+						$("#bookingdatedate").append(years+"-"+mons+"-"+dates);
+						$("#comfirm_ampm").append("上午");
+						$("#comfirm_time").append("08:00-12:00");
+					}
 					$("#signedlist000").show();
 					$(".signedcontentdiv001").css({ 'font-weight': 'bold' });
 					$(".signedcontentdiv001").css({"color":"green"});
 					$(".signedcontentdiv001").show();
 					$(".signedcontentdiv002").show();
 					$(".signedcontentdiv000").hide();
-					$("#comfirm_ampm").append("晚上");
-					$("#comfirm_time").append("18:00-22:00");
+					
 			     }
 				 if(kampm=="wm")
 				 {
-				 	$("#signedlist000").show();
+				 	$("#bookingdatedate").append(years+"-"+mons+"-"+dates);
+					$("#signedlist000").show();
 					$(".signedcontentdiv000").css({ 'font-weight': 'bold' });
 					$(".signedcontentdiv000").css({"color":"green"});
 					$(".signedcontentdiv000").show();
