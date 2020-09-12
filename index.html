@@ -44,9 +44,9 @@
 				if(kampm=="wm"){
 					var day = new Date;
 					day.setTime(day.getTime()+24*60*60*1000);
-					var year1 = myDate.getFullYear(); //获取当前年
-					var mon1 = myDate.getMonth() + 1; //获取当前月
-					var date1 = myDate.getDate(); //获取当前日
+					var year1 = day.getFullYear(); //获取当前年
+					var mon1 = day.getMonth() + 1; //获取当前月
+					var date1 = day.getDate(); //获取当前日
 					$("#bookingdatedate").append(year1+"-"+mon1+"-"+date1);
 				}
 				else{
