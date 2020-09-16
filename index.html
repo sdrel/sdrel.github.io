@@ -49,61 +49,168 @@
 		
 		
 		$(document).ready(function(){
-				 $("#bookingdatedate1").append(year+"-"+mon+"-"+date);
-				 $("#bookingdatedate2").append(year+"-"+mon+"-"+date);
-				 $("#bookingdatedate3").append(year+"-"+mon+"-"+date);
+				 $("#global_info").hide();
+				 $(".bookingdatedate_sign").append(year+"-"+mon+"-"+date);
+				 $(".signedcontentdiv_am").hide();
+				 $(".signedcontentdiv_pm").hide();
+				 $(".signedcontentdiv_wm").hide();
 			     if(kampm=="am")
 			     {
-			     	$("#bookingdatedate").append(year+"-"+mon+"-"+date);
+			     	
+					
 					$("#signedlist000").show();
-					$(".signedcontentdiv002").css({ 'font-weight': 'bold' });
-					$(".signedcontentdiv002").css({"color":"green"});
-					$(".signedcontentdiv002").show();
-					$(".signedcontentdiv001").hide();
-					$(".signedcontentdiv000").hide();
-					$("#comfirm_ampm").append("下午");
-					$("#comfirm_time").append("12:00-18:00");
+					$(".signedcontentdiv_am").css({ 'font-weight': 'bold' });
+					$(".signedcontentdiv_am").css({"color":"green"});
+					$("#amc").show();
+					$("#pmc").hide();
+					$("#wmc").hide();
+					$("#today_pm").show();
+					$("#today_wm").show();
+					$("#tomorrow_am").show();
+					$("#tomorrow_pm").hide();
+					$("#tomorrow_wm").hide();
+					//$("#comfirm_data").append(year+"-"+mon+"-"+date);
+					<!-- $(".signedcontentdiv_am").show(); -->
+					<!-- $(".signedcontentdiv_pm").hide(); -->
+					<!-- $(".signedcontentdiv_wm").hide(); -->
+					<!-- $("#comfirm_ampm").append("下午"); -->
+					<!-- $("#comfirm_time").append("12:00-18:00"); -->
 			     }
 			     if(kampm=="pm")
 			     {
-			     	if(week!=0){
-						$("#bookingdatedate").append(year+"-"+mon+"-"+date);
-						$("#comfirm_ampm").append("晚上");
-						$("#comfirm_time").append("18:00-22:00");
-					}
-					else{
-						$("#bookingdatedate").append(years+"-"+mons+"-"+dates);
-						$("#comfirm_ampm").append("上午");
-						$("#comfirm_time").append("08:00-12:00");
-					}
+			     	<!-- if(week!=0){ -->
+						<!-- $("#comfirm_data").append(year+"-"+mon+"-"+date); -->
+						<!-- $("#comfirm_ampm").append("晚上"); -->
+						<!-- $("#comfirm_time").append("18:00-22:00"); -->
+					<!-- } -->
+					<!-- else{ -->
+						<!-- $("#comfirm_data").append(years+"-"+mons+"-"+dates); -->
+						<!-- $("#comfirm_ampm").append("上午"); -->
+						<!-- $("#comfirm_time").append("08:00-12:00"); -->
+					<!-- } -->
 					$("#signedlist000").show();
-					$(".signedcontentdiv001").css({ 'font-weight': 'bold' });
-					$(".signedcontentdiv001").css({"color":"green"});
-					$(".signedcontentdiv001").show();
-					$(".signedcontentdiv002").show();
-					$(".signedcontentdiv000").hide();
+					$(".signedcontentdiv_pm").css({ 'font-weight': 'bold' });
+					$(".signedcontentdiv_pm").css({"color":"green"});
+					$("#amc").show();
+					$("#pmc").show();
+					$("#wmc").hide();
+					$("#today_pm").hide();
+					$("#today_wm").show();
+					$("#tomorrow_am").show();
+					$("#tomorrow_pm").hide();
+					$("#tomorrow_wm").hide();
+					<!-- $(".signedcontentdiv_pm").show(); -->
+					<!-- $(".signedcontentdiv_am").show(); -->
+					<!-- $(".signedcontentdiv_wm").hide(); -->
 					
 			     }
 				 if(kampm=="wm")
 				 {
-				 	$("#bookingdatedate").append(years+"-"+mons+"-"+dates);
+				 	
 					$("#signedlist000").show();
-					$(".signedcontentdiv000").css({ 'font-weight': 'bold' });
-					$(".signedcontentdiv000").css({"color":"green"});
-					$(".signedcontentdiv000").show();
-					$(".signedcontentdiv001").show();
-					$(".signedcontentdiv002").show();
-					$("#comfirm_ampm").append("上午");
-					$("#comfirm_time").append("08:00-12:00");
+					$(".signedcontentdiv_wm").css({ 'font-weight': 'bold' });
+					$(".signedcontentdiv_wm").css({"color":"green"});
+					$("#amc").show();
+					$("#pmc").show();
+					$("#wmc").show();
+					$("#today_pm").hide();
+					$("#today_wm").hide();
+					$("#tomorrow_am").show();
+					$("#tomorrow_pm").show();
+					$("#tomorrow_wm").show();
+					
+					<!-- $("#comfirm_data").append(years+"-"+mons+"-"+dates); -->
+					<!-- $(".signedcontentdiv_wm").show(); -->
+					<!-- $(".signedcontentdiv_pm").show(); -->
+					<!-- $(".signedcontentdiv_am").show(); -->
+					<!-- $("#comfirm_ampm").append("上午"); -->
+					<!-- $("#comfirm_time").append("08:00-12:00"); -->
 				 }
 				
 			});  
 		
-
-
-        
-    });
-    
+		$("#appear").click(function(){
+			$("#global_info").show();
+		});
+		$("#disappear").click(function(){
+			$("#global_info").hide();
+		});
+		
+		$("#mzfc").click(function(){
+			$(".school_id").append("201721170218");
+			$("#stu").hide();
+		});
+		
+		$("#sjfc").click(function(){
+			$(".school_id").append("201721170223");
+			$("#stu").hide();
+		});
+		$("#srlc").click(function(){
+			$(".school_id").append("201721170220");
+			$("#stu").hide();
+		});
+		$("#sjzc").click(function(){
+			$(".school_id").append("201721170222");
+			$("#stu").hide();
+		});
+		
+		$("#amc").click(function(){
+			$(".signedcontentdiv_am").show();
+			$("#amc").hide();
+		});
+		
+		$("#pmc").click(function(){
+			$(".signedcontentdiv_pm").show();
+			$("#pmc").hide();
+		});
+		
+		$("#wmc").click(function(){
+			$(".signedcontentdiv_wm").show();
+			$("#wmc").hide();
+		});
+		
+        $("#yes").click(function(){
+			$("#time_appear").hide();
+			$("#yes").hide();
+			
+		});
+		
+		$("#today_pmc").click(function(){
+			$("#comfirm_data").append(year+"-"+mon+"-"+date);
+			$("#comfirm_ampm").append("下午");
+			$("#comfirm_time").append("12:00-18:00");
+			$("#booktime").hide();
+		});
+		
+		$("#today_wmc").click(function(){
+			$("#comfirm_data").append(year+"-"+mon+"-"+date);
+			$("#comfirm_ampm").append("晚上");
+			$("#comfirm_time").append("18:00-22:00");
+			$("#booktime").hide();
+		});
+		
+		$("#tomorrow_amc").click(function(){
+			$("#comfirm_data").append(years+"-"+mons+"-"+dates);
+			$("#comfirm_ampm").append("上午");
+			$("#comfirm_time").append("08:00-12:00");
+			$("#booktime").hide();
+		});
+		
+		$("#tomorrow_pmc").click(function(){
+			$("#comfirm_data").append(years+"-"+mons+"-"+dates);
+			$("#comfirm_ampm").append("下午");
+			$("#comfirm_time").append("12:00-18:00");
+			$("#booktime").hide();
+		});
+		
+		$("#tomorrow_wmc").click(function(){
+			$("#comfirm_data").append(years+"-"+mons+"-"+dates);
+			$("#comfirm_ampm").append("晚上");
+			$("#comfirm_time").append("18:00-22:00");
+			$("#booktime").hide();
+		});
+		
+	})   //function
     </script>
     <style type="text/css">
     .panel{
@@ -138,14 +245,6 @@
 </head>
 
 <body>
-<!-- 爽约记录 -->
-<div class="col-center-block" style="height:20%;"><p><span></span></p></div>
-<div class="col-center-block" style="width:80%;display:none;" id="brklist000">
-    <div style="float:left;clear:both;"><font class="brkstr">你已是爽约多次:</font></div>
-	
-	<div style="float:none;clear:both;"><hr style="margin:0px 0px;height:10px;border:none;border-top:10px solid #CCC;" /></div>
-	
-</div>
 <!-- 确认信息 -->
 <div class="col-center-block" style="height:20%;"><p><span></span></p></div>
 <div class="col-center-block" style="width:80%;" >   
@@ -155,7 +254,7 @@
 	        <div>
 	           <div style="float:left;clear:both;"><font class="kfoll">你的预约已经确认</font></div>
 	           <div style="float:none;clear:both;"><hr style="height:1px;border:none;border-top:1px solid #CCC;" /></div> 
-	           <div style="float:left;">预约时间</div> 	<div  style="float:right;clear:right;"><span id="comfirm_ampm"></span> <span id="comfirm_time"></span></div><div style="float:right;" id="bookingdatedate"></div>
+	           <div style="float:left;">预约时间</div> 	<div  style="float:right;clear:right;"><span id="comfirm_ampm"></span> <span id="comfirm_time"></span></div><div style="float:right;" id="comfirm_data"></div>
 	        </div>
 	        <div style="float:none;clear:both;"><hr style="height:1px;border:none;border-top:1px solid #CCC;" /></div>
 	        <div>
@@ -164,7 +263,7 @@
 	        </div>
 	         <div style="float:none;clear:both;"><hr style="height:1px;border:none;border-top:1px solid #CCC;" /></div>
 	        <div>
-	        	<div style="float:left;">读者账号</div> <div  style="float:right;">201721170220</div>
+	        	<div style="float:left;">读者账号</div> <div  style="float:right;"><span class = "school_id"> </span> </div>
 	            
 	        </div>
 	         <div style="float:none;clear:both;"><hr style="height:1px;border:none;border-top:1px solid #CCC;" /></div>
@@ -188,46 +287,46 @@
 <!-- 签到记录 -->
 <div class="col-center-block" style="height:20%;"><p><span></span></p></div>
 <div class="col-center-block" style="width:80%;display:none;" id="signedlist000">    
-	<div id="confirmcontentdiv000" class="signedcontentdiv000" bookingdate="2020-09-10" dayampm="wm" >
+	<div id="confirmcontentdiv000" class="signedcontentdiv_wm" bookingdate="2020-09-10" dayampm="wm" >
 		<div style="float:none;clear:both;"><hr style="margin:-2px 0px;height:10px;border:none;border-top:10px solid #CCC;" /></div>
 		<div style="float:left;clear:both;"><font class="signedstr">你已经签到</font></div>
 		<div style="float:none;clear:both;"><hr style="margin:0px 0px;;height:1px;border:none;border-top:1px solid #CCC;" /></div> 
-		<div style="float:left;">预约时间</div> 	<div  style="float:right;clear:right;">晚上 18:00-22:00</div><div style="float:right;" id="bookingdatedate1"></div>
+		<div style="float:left;">预约时间</div> 	<div  style="float:right;clear:right;">晚上 18:00-22:00</div><div style="float:right;" class="bookingdatedate_sign"></div>
 		<div style="float:none;clear:both;"><hr style="margin:0px 0px;height:1px;border:none;border-top:1px solid #CCC;" /></div>
 	    <div>
 	    	<div style="float:left;">场馆</div> <div  style="float:right;">泰山分馆</div>	            
 	    </div>
 	    <div style="float:none;clear:both;"><hr style="margin:0px 0px;height:1px;border:none;border-top:1px solid #CCC;" /></div>
 	    <div>
-	    	<div style="float:left;">读者账号</div> <div  style="float:right;">201721170220</div>	            
+	    	<div style="float:left;">读者账号</div> <div  style="float:right;"><span class = "school_id"> </span></div>	            
 	    </div>
 	</div>    
-	<div id="confirmcontentdiv000" class="signedcontentdiv001" bookingdate="2020-09-10" dayampm="pm" >
+	<div id="confirmcontentdiv000" class="signedcontentdiv_pm" bookingdate="2020-09-10" dayampm="pm" >
 		<div style="float:none;clear:both;"><hr style="margin:-2px 0px;height:10px;border:none;border-top:10px solid #CCC;" /></div>
 		<div style="float:left;clear:both;"><font class="signedstr">你已经签到</font></div>
 		<div style="float:none;clear:both;"><hr style="margin:0px 0px;;height:1px;border:none;border-top:1px solid #CCC;" /></div> 
-		<div style="float:left;">预约时间</div> 	<div  style="float:right;clear:right;">下午 12:00-18:00</div><div style="float:right;" id="bookingdatedate2"></div>
+		<div style="float:left;">预约时间</div> 	<div  style="float:right;clear:right;">下午 12:00-18:00</div><div style="float:right;" class="bookingdatedate_sign"></div>
 		<div style="float:none;clear:both;"><hr style="margin:0px 0px;height:1px;border:none;border-top:1px solid #CCC;" /></div>
 	    <div>
 	    	<div style="float:left;">场馆</div> <div  style="float:right;">泰山分馆</div>	            
 	    </div>
 	    <div style="float:none;clear:both;"><hr style="margin:0px 0px;height:1px;border:none;border-top:1px solid #CCC;" /></div>
 	    <div>
-	    	<div style="float:left;">读者账号</div> <div  style="float:right;">201721170220</div>	            
+	    	<div style="float:left;">读者账号</div> <div  style="float:right;"><span class = "school_id"> </span></div>	            
 	    </div>
 	</div>    
-	<div id="confirmcontentdiv000" class="signedcontentdiv002" bookingdate="2020-09-10" dayampm="am" >
+	<div id="confirmcontentdiv000" class="signedcontentdiv_am" bookingdate="2020-09-10" dayampm="am" >
 		<div style="float:none;clear:both;"><hr style="margin:-2px 0px;height:10px;border:none;border-top:10px solid #CCC;" /></div>
 		<div style="float:left;clear:both;"><font class="signedstr">你已经签到</font></div>
 		<div style="float:none;clear:both;"><hr style="margin:0px 0px;;height:1px;border:none;border-top:1px solid #CCC;" /></div> 
-		<div style="float:left;">预约时间</div> 	<div  style="float:right;clear:right;">上午 8:00-12:00</div><div style="float:right;" id="bookingdatedate3"></div>
+		<div style="float:left;">预约时间</div> 	<div  style="float:right;clear:right;">上午 8:00-12:00</div><div style="float:right;" class="bookingdatedate_sign"></div>
 		<div style="float:none;clear:both;"><hr style="margin:0px 0px;height:1px;border:none;border-top:1px solid #CCC;" /></div>
 	    <div>
 	    	<div style="float:left;">场馆</div> <div  style="float:right;">泰山分馆</div>	            
 	    </div>
 	    <div style="float:none;clear:both;"><hr style="margin:0px 0px;height:1px;border:none;border-top:1px solid #CCC;" /></div>
 	    <div>
-	    	<div style="float:left;">读者账号</div> <div  style="float:right;">201721170220</div>	            
+	    	<div style="float:left;">读者账号</div> <div  style="float:right;"><span class = "school_id"> </span></div>	            
 	    </div>
 	</div>
 	<div style="float:none;clear:both;"><hr style="margin:0px 0px;height:10px;border:none;border-top:10px solid #CCC;" /></div>
@@ -243,13 +342,109 @@
 	<div>资源有限，敬请各位读者在预约起始时间的1个小时内来馆，否则此次预约不予保留。</div> 
 	
 </div> 
-<div class="col-center-block" style="width:80%;display:none;" id="brkdiv002" > 
-	<div class="tipsw">你前7天内的爽约次数超过了3次,请等待下个时段再试。</div>
-	<div>预约注意事项:</div>
-	<div>预约到馆的读者，请签到；或如不能按约到馆的，请及时取消。否则，将影响下次预约的权限。</div>
-	<div>资源有限，敬请各位读者在预约起始时间的1个小时内来馆，否则此次预约不予保留。</div> 
+
+
+<!-- <div id = "again" style = "opacity:0.05;width:90px;"> -->
+	<!-- <p> 重来 </p> -->
+<!-- </div> -->
+
+<div id = "yes" align="center" style = "width:400px;"  class="btn btn-danger">
+	<font size = "9">确认</font>
+</div>
+
+
+<div id = "stu">
+	<div id="mzf" align="center" style="float:none;clear:both;">
+	<span id="mzfc"   style="width:90px;">马志烽</span>
+	</br>
+	</br>
+	</div>
 	
+	<div id="sjf" align="center" style="float:none;clear:both;">
+	<span id="sjfc"  style="width:90px;">苏靖峰</span>
+	</br>
+	</br>
+	</div>
 	
-</div>         
+	<div id="srl" align="center" style="float:none;clear:both;">
+	<span id="srlc"  style="width:90px;">单睿龙</span>
+	</br>
+	</br>
+	</div>
+	
+	<div id="sjz" align="center" style="float:none;clear:both;">
+	<span id="sjzc"  style="width:90px;">宋江洲</span>
+	</br>
+	</br>
+	</div>
+</div>
+
+<div id = "time_appear">
+	
+	<div id="am" align="center" style="float:none;clear:both;">
+	<span id="amc"   style="width:90px;">签到上午</span>
+	</br>
+	</br>
+	</div>
+	<div id="pm" align="center" style="float:none;clear:both;">
+	<span id="pmc"   style="width:90px;">签到下午</span>
+	</br>
+	</br>
+	</div>
+	<div id="wm" align="center" style="float:none;clear:both;">
+	<span id="wmc"   style="width:90px;">签到晚上</span>
+	</br>
+	</br>
+	</div>
+	
+</div>
+
+<div id = "booktime">
+	<div id = "today_pm" align="center" style="float:none;clear:both;">
+	<span id = "today_pmc" style="width:90px;">预约今天下午</span>
+	</br>
+	</br>
+	</div>
+	
+	<div id = "today_wm" align="center" style="float:none;clear:both;">
+	<span id = "today_wmc" style="width:90px;">预约今天晚上</span>
+	</br>
+	</br>
+	</div>
+	
+	<div id = "tomorrow_am" align="center" style="float:none;clear:both;">
+	<span id = "tomorrow_amc" style="width:90px;">预约明天上午</span>
+	</br>
+	</br>
+	</div>
+	
+	<div id = "tomorrow_pm" align="center" style="float:none;clear:both;">
+	<span id = "tomorrow_pmc" style="width:90px;">预约明天下午</span>
+	</br>
+	</br>
+	</div>
+	
+	<div id = "tomorrow_wm" align="center" style="float:none;clear:both;">
+	<span id = "tomorrow_wmc" style="width:90px;">预约明天晚上</span>
+	</br>
+	</br>
+	</div>
+
+</div>
+
+<!-- <div id = "location"> -->
+	<!-- <div id="xiaotu" align="center" style="float:none;clear:both;"> -->
+	<!-- <span id="xiaotuc"   style="width:90px;">泰山分馆</span> -->
+	<!-- </br> -->
+	<!-- </br> -->
+	<!-- </div> -->
+
+	<!-- <div id="datu" align="center" style="float:none;clear:both;"> -->
+	<!-- <span id="datuc"   style="width:90px;">总馆</span> -->
+	<!-- </br> -->
+	<!-- </br> -->
+	<!-- </div> -->
+<!-- </div> -->
+
 </body>
 </html>
