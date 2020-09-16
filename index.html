@@ -94,8 +94,14 @@
 					$("#amc").show();
 					$("#pmc").show();
 					$("#wmc").hide();
+					
 					$("#today_pm").hide();
-					$("#today_wm").show();
+					if(week==0){
+						$("#today_wm").hide();
+					}
+					else{
+						$("#today_wm").show();
+					}
 					$("#tomorrow_am").show();
 					$("#tomorrow_pm").hide();
 					$("#tomorrow_wm").hide();
@@ -113,6 +119,7 @@
 					$("#amc").show();
 					$("#pmc").show();
 					$("#wmc").show();
+					
 					$("#today_pm").hide();
 					$("#today_wm").hide();
 					$("#tomorrow_am").show();
