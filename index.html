@@ -216,6 +216,15 @@
 			$("#comfirm_time").append("18:00-22:00");
 			$("#booktime").hide();
 		});
+
+		$("#xiaoutuc").click(function(){
+			$(".loc").append("泰山分馆");
+			$("#location").hide();
+		});
+		$("#datuc").click(function(){
+			$(".loc").append("总馆");
+			$("#location").hide();
+		});
 		
 	})   //function
     </script>
@@ -265,7 +274,7 @@
 	        </div>
 	        <div style="float:none;clear:both;"><hr style="height:1px;border:none;border-top:1px solid #CCC;" /></div>
 	        <div>
-	        	<div style="float:left;">场馆</div> <div  style="float:right;">泰山分馆</div>
+	        	<div style="float:left;">场馆</div> <div  style="float:right;"><span class = "loc"> </span></div>
 	            
 	        </div>
 	         <div style="float:none;clear:both;"><hr style="height:1px;border:none;border-top:1px solid #CCC;" /></div>
@@ -308,7 +317,7 @@
 		<div style="float:left;">预约时间</div> 	<div  style="float:right;clear:right;">晚上 18:00-22:00</div><div style="float:right;" class="bookingdatedate_sign"></div>
 		<div style="float:none;clear:both;"><hr style="margin:0px 0px;height:1px;border:none;border-top:1px solid #CCC;" /></div>
 	    <div>
-	    	<div style="float:left;">场馆</div> <div  style="float:right;">泰山分馆</div>	            
+	    	<div style="float:left;">场馆</div> <div  style="float:right;"><span class = "loc"> </span></div>	            
 	    </div>
 	    <div style="float:none;clear:both;"><hr style="margin:0px 0px;height:1px;border:none;border-top:1px solid #CCC;" /></div>
 	    <div>
@@ -322,7 +331,7 @@
 		<div style="float:left;">预约时间</div> 	<div  style="float:right;clear:right;">下午 12:00-18:00</div><div style="float:right;" class="bookingdatedate_sign"></div>
 		<div style="float:none;clear:both;"><hr style="margin:0px 0px;height:1px;border:none;border-top:1px solid #CCC;" /></div>
 	    <div>
-	    	<div style="float:left;">场馆</div> <div  style="float:right;">泰山分馆</div>	            
+	    	<div style="float:left;">场馆</div> <div  style="float:right;"><span class = "loc"> </span></div>	            
 	    </div>
 	    <div style="float:none;clear:both;"><hr style="margin:0px 0px;height:1px;border:none;border-top:1px solid #CCC;" /></div>
 	    <div>
@@ -336,7 +345,7 @@
 		<div style="float:left;">预约时间</div> 	<div  style="float:right;clear:right;">上午 8:00-12:00</div><div style="float:right;" class="bookingdatedate_sign"></div>
 		<div style="float:none;clear:both;"><hr style="margin:0px 0px;height:1px;border:none;border-top:1px solid #CCC;" /></div>
 	    <div>
-	    	<div style="float:left;">场馆</div> <div  style="float:right;">泰山分馆</div>	            
+	    	<div style="float:left;">场馆</div> <div  style="float:right;"><span class = "loc"> </span></div>	            
 	    </div>
 	    <div style="float:none;clear:both;"><hr style="margin:0px 0px;height:1px;border:none;border-top:1px solid #CCC;" /></div>
 	    <div>
@@ -444,19 +453,19 @@
 
 </div>
 
-<!-- <div id = "location"> -->
-	<!-- <div id="xiaotu" align="center" style="float:none;clear:both;"> -->
-	<!-- <span id="xiaotuc"   style="width:90px;">泰山分馆</span> -->
-	<!-- </br> -->
-	<!-- </br> -->
-	<!-- </div> -->
+ <div id = "location"> 
+	 <div id="xiaotu" align="center" style="float:none;clear:both;"> 
+	 <span id="xiaotuc"   style="width:90px;">泰山分馆</span> 
+	 </br> 
+	 </br> 
+	 </div> 
 
-	<!-- <div id="datu" align="center" style="float:none;clear:both;"> -->
-	<!-- <span id="datuc"   style="width:90px;">总馆</span> -->
-	<!-- </br> -->
-	<!-- </br> -->
-	<!-- </div> -->
-<!-- </div> -->
+	 <div id="datu" align="center" style="float:none;clear:both;"> 
+	 <span id="datuc"   style="width:90px;">总馆</span>
+	 </br>
+	 </br> 
+	 </div> 
+ </div>
 
 </body>
 </html>
