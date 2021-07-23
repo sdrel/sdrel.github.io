@@ -1,17 +1,132 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>汪丽婵.我爱你</title>
-</head>
-    <script>
-        alert("此网页无法访问！");
-        setTimeout(myfunction,5000);
-        function myfunction(){
-		alert("🐖🐖🐖�");}
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+
+
+
+<meta name="description" >
+<link href='https://lovefort.cn/css/style.css?update=21vv04218421412' type='text/css' rel='stylesheet'><script src='https://lovefort.cn/js/jquery.js?update=21vv04218421412'></script><script src='https://lovefort.cn/js/tplAll.js?update=21vv04218421412'></script><script src='https://lovefort.cn/js/utils.js?update=21vv04218421412'></script><script src='https://lovefort.cn/js/sd.js?update=21vv04218421412'></script>
+
+
+        <meta name="viewport" content="width=device-width,hight=device-hight,minimum-scale=1.0,maximum-scale=1.0,ser-scalable=none">
+        <title>😉</title>
+        <style>
+            body {
+                background-color: rgb(26,15,126);
+            }
+            .rw-card {
+                width: 100%;
+                max-width: 200px;
+                text-align: center;
+                margin: 0 auto;
+            }
+
+            .rw-tip {
+                color: #ffffff;
+                font-size: 35px;
+                font-weight: 600;
+                padding: 10px;
+                margin: 20px;
+            }
+            .rw-border {
+                margin: -315px -100px 0px;
+                width: 230px;
+                height: 335px;
+            }
+
+            .btn-group {
+                text-align:center
+            }
+
+            .btn-group button {
+                font-size: 25px;
+                margin: 5px;
+                outline: none;
+                background-color: #ffe500;
+                border-radius: 5px;
+                border: 0;
+                color: #a74018;
+                font-weight: 600;
+                padding: 10px;
+                cursor: pointer;
+            }
+            #rw-tip-s {
+                margin: 10px 0px;
+                text-align: center;
+                color: #F44336;
+                font-size: 20px;
+            }
+            #rw-tip-s span {
+                background-color: red;
+            }
+            #rw-tip-s span {
+                background-color:#ff0000;
+                color: #1a0f7e;
+                margin: 5px;
+                padding: 3px 10px;
+                border-radius: 2px;
+                font-weight: 600;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="rw-tip"><center>猜不中是猪</center></div>
+        <div id="rw-tip-s" class="rw-tip-s">你还有<span>3</span>次机会</div>
+        <div class="rw-card">
+            <img id="rw-img" class="rw-main" src="https://lovefort.cn/code/19/rw/q1.jpg" />
+            <img class="rw-border" src="https://lovefort.cn/code/19/images/card.png" />
+        </div>
+        <div class="btn-group">
+            <button onclick="show(4)">海绵宝贝</button>
+            <button onclick="show(5)">派大星</button>
+            <button onclick="show(2)">慢羊羊</button>
+            <button onclick="show(3)">美羊羊</button>
+        </div>
+
+        <script>setWaterMark()</script>    <script>
+        function initCodeData(){
+            init();
+        }
     </script>
-<body>
-</body>
+
+        <script>
+            var c = 3;
+            var rw = {"q2.jpg":"慢羊羊","q3.jpg":"美羊羊","q4.jpg":"海绵宝宝"};
+            var count = 0;
+            function show(n){
+                if(n >= 5 || n < 2){
+                    n = parseInt((Math.random()*3) + 2)
+
+                }else if(n == 2){
+                    n = 4;
+                }else if(n==3){
+                    n = 2;
+                }else if(n==4)
+                {
+                    n = 3;
+                }
+                count++;
+
+                if(c-count>=1){
+                    filename = "q"+n+".jpg";
+                    document.getElementById('rw-img').src = "https://lovefort.cn/code/19/rw/"+filename;
+                    document.getElementById('rw-tip-s').innerHTML = "这是"+rw[filename]+"，你还有<span>"+(c-count)+"</span>次机会";
+                }else{
+                    filename = "q"+n+".jpg";
+                    document.getElementById('rw-img').src = "https://lovefort.cn/code/19/rw/"+filename;
+
+                    document.getElementById('rw-tip-s').innerHTML = "这是"+rw[filename]+"，你还有<span>0</span>次机会";
+                    alert("一次都没猜中，你是猪");
+                }
+            }
+        </script>
+
+        <script>
+            function initCodeData(){
+                init();
+            }
+        </script>
+
+    </body>
 </html>
